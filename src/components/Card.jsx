@@ -6,10 +6,16 @@ export default function Card(props){
     const person = props.props
     console.log(person)
 
-
+    let digitText
+    if(person.openSpots == 0){
+        digitText = 'SOLD OUT'
+    }
+    else if(person.location == 'Online'){
+        digitText = 'Online'
+    }
     return (
         <div className="card">
-            {person.openSpots > 0 && <p className='card-online'>online</p>}
+            {digitText && <p className='card-online'>{digitText}</p>}
             <img src={`./img/${person.coverImg}`} alt='zaferes image' className='card-logo'/>
             <div className='card-footer'>
                 <div>
